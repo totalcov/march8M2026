@@ -1,85 +1,80 @@
-/* ====== base ====== */
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  margin: 0;
-  background: #f7f6f3;
-  color: #2b2b2b;
-  font-family: "Georgia", "Times New Roman", serif;
+    font-family: "Georgia", serif;
+    background: #f7f6f3;
+    color: #2b2b2b;
+    display: flex;
+    justify-content: center;
 }
 
-/* ====== layout ====== */
-.container {
-  display: flex;
-  flex-direction: column; /* 📱 по умолчанию — телефон */
-  min-height: 100vh;
+.page {
+    width: 100%;
+    max-width: 900px;
+    padding: 24px 16px 40px;
 }
 
-/* ====== image block ====== */
-.image {
-  width: 100%;
+/* ===== ФОТО ===== */
+
+.slider {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
 }
 
-.image img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
+.slider img {
+    width: 100%;
+    max-width: 420px;   /* ← ВАЖНО: ограничение размера */
+    height: auto;
+    border-radius: 6px;
+    display: none;
 }
 
-/* ====== text block ====== */
+.slider img.active {
+    display: block;
+}
+
+/* ===== ТЕКСТ ===== */
+
 .text {
-  padding: 24px 20px 40px;
+    text-align: center;
 }
 
 .text h1 {
-  font-size: 22px;
-  font-weight: normal;
-  margin: 0 0 6px;
+    font-size: 24px;
+    margin-bottom: 8px;
+    font-weight: normal;
 }
 
 .text .date {
-  font-size: 14px;
-  color: #8c8c8c;
-  margin-bottom: 24px;
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 20px;
+    display: block;
 }
 
 .text p {
-  font-size: 16px;
-  line-height: 1.7;
-  margin: 0 0 18px;
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 12px;
 }
 
-/* ====== desktop ====== */
-@media (min-width: 768px) {
-  .container {
-    flex-direction: row; /* 💻 две колонки */
-  }
+/* ===== АДАПТАЦИЯ ===== */
 
-  .image,
-  .text {
-    width: 50%;
-  }
+@media (max-width: 600px) {
+    .slider img {
+        max-width: 90%;
+    }
 
-  .image img {
-    height: 100vh;
-  }
+    .text h1 {
+        font-size: 22px;
+    }
 
-  .text {
-    padding: 80px 70px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .text h1 {
-    font-size: 28px;
-  }
-
-  .text p {
-    font-size: 18px;
-    line-height: 1.8;
-  }
+    .text p {
+        font-size: 15px;
+    }
 }
