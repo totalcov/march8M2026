@@ -140,3 +140,42 @@ body {
 #photo:not(.fade) {
     opacity: 0;
 }
+
+/* ===== МОБИЛЬНАЯ ВЕРСИЯ ===== */
+@media (max-width: 768px) {
+
+  .page {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .slider {
+    width: 100%;
+    height: auto;
+    margin: 40px auto 20px;
+  }
+
+  /* резервируем место под фото */
+  .slider::before {
+    content: "";
+    display: block;
+    padding-top: 125%;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: auto;
+    max-width: 420px;
+  }
+
+  .text {
+    width: 100%;
+    padding: 20px 24px 60px;
+    text-align: center;
+  }
+
+}
