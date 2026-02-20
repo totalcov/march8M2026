@@ -78,3 +78,36 @@ body {
         font-size: 15px;
     }
 }
+
+
+/* анимация текста */
+.fade-text {
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeUp 1.2s ease forwards;
+}
+
+/* задержки — чтобы строки появлялись по очереди */
+.fade-text:nth-child(1) { animation-delay: 0.2s; }
+.fade-text:nth-child(2) { animation-delay: 0.5s; }
+.fade-text:nth-child(3) { animation-delay: 0.9s; }
+.fade-text:nth-child(4) { animation-delay: 1.3s; }
+.fade-text:nth-child(5) { animation-delay: 1.7s; }
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+.heart {
+    display: inline-block;
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+}
