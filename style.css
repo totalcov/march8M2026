@@ -203,3 +203,44 @@ body {
     opacity: 0;
   }
 }
+
+
+/* ====== DESKTOP VERSION ====== */
+@media (min-width: 900px) {
+
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    gap: 60px;
+    padding: 60px 40px;
+  }
+
+  /* Фото слева */
+  .slider {
+    width: 45%;
+    max-width: 420px;
+  }
+
+  .slider img {
+    width: 100%;
+    max-width: 420px;
+  }
+
+  /* Текст справа */
+  .text {
+    width: 55%;
+    text-align: left;
+  }
+
+  .text h1 {
+    margin-top: 0;
+  }
+}
