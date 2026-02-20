@@ -179,3 +179,27 @@ body {
   }
 
 }
+
+
+/* ===== ПЛАВАЮЩИЕ СЕРДЕЧКИ ===== */
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 18px;
+  pointer-events: none;
+  animation: floatUp linear forwards;
+  opacity: 0.8;
+  z-index: 5;
+}
+
+@keyframes floatUp {
+  from {
+    transform: translateY(0) translateX(0);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(-110vh) translateX(var(--x));
+    opacity: 0;
+  }
+}

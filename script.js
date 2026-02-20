@@ -29,4 +29,34 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ===== ПЛАВАЮЩИЕ СЕРДЕЧКИ =====
+
+const hearts = ['🤍', '💖', '💗', '💞', '🌸'];
+
+function createHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'heart';
+  heart.innerText = hearts[Math.floor(Math.random() * hearts.length)];
+
+  const size = Math.random() * 12 + 12;
+  heart.style.fontSize = size + 'px';
+
+  heart.style.left = Math.random() * 100 + 'vw';
+  heart.style.setProperty('--x', (Math.random() * 60 - 30) + 'px');
+
+  const duration = Math.random() * 5 + 6;
+  heart.style.animationDuration = duration + 's';
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, duration * 1000);
+}
+
+// создаём сердечко каждые 1.2 сек
+setInterval(createHeart, 1000);
+
 });
+
+
