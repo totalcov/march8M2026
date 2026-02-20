@@ -152,7 +152,7 @@ body {
   .slider {
     width: 100%;
     height: auto;
-    margin: 40px auto 20px;
+    margin: 20px auto 10px;
   }
 
   /* резервируем место под фото */
@@ -174,7 +174,7 @@ body {
 
   .text {
     width: 100%;
-    padding: 20px 24px 60px;
+    padding: 12px 20px 30px;
     text-align: center;
   }
 

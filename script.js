@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!slides.length) return;
 
     let index = 0;
-    const intervalTime = 7000;
+    const intervalTime = 3000;
 
     function showSlide(i) {
         slides.forEach((slide, n) => {
