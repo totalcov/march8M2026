@@ -111,3 +111,13 @@ body {
     0%, 100% { transform: scale(1); }
     50% { transform: scale(1.15); }
 }
+
+#photo {
+    transition: opacity 0.8s ease;
+    opacity: 1;
+    cursor: pointer;
+}
+
+#photo:not(.fade) {
+    opacity: 0;
+}
