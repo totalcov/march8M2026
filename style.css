@@ -21,9 +21,21 @@ body {
 /* ===== ФОТО ===== */
 
 .slider {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 24px;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide {
+  position: absolute;
+  width: 90%;
+  max-width: 420px;
+  height: auto;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.2s ease;
 }
 
 .slider img {

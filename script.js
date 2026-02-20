@@ -1,30 +1,26 @@
-const photos = [
-    'img/1.jpg',
-    'img/2.jpg',
-    'img/3.jpg'
-];
+const slides = document.querySelectorAll('.slide');
+let index = 0;
+const intervalTime = 7000;
 
-const photoEl = document.getElementById('photo');
-let current = 0;
-const intervalTime = 4000;
+function showSlide(i) {
+  slides.forEach((slide, n) => {
+    slide.classList.toggle('active', n === i);
+  });
+}
 
-function nextPhoto() {
-    current = (current + 1) % photos.length;
-    photoEl.classList.remove('fade');
-
-    // маленькая пауза для анимации
-    setTimeout(() => {
-        photoEl.src = photos[current];
-        photoEl.classList.add('fade');
-    }, 100);
+function nextSlide() {
+  index = (index + 1) % slides.length;
+  showSlide(index);
 }
 
 // автопереключение
-let slider = setInterval(nextPhoto, intervalTime);
+let sliderInterval = setInterval(nextSlide, intervalTime);
 
-// переключение по тапу
-photoEl.addEventListener('click', () => {
-    clearInterval(slider);
-    nextPhoto();
-    slider = setInterval(nextPhoto, intervalTime);
+// 👆 переключение по тапу / клику
+slides.forEach(slide => {
+  slide.addEventListener('click', () => {
+    clearInterval(sliderInterval);
+    nextSlide();
+    sliderInterval = setInterval(nextSlide, intervalTime);
+  });
 });
