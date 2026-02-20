@@ -25,8 +25,9 @@ body {
 .slider {
     width: 100%;
     max-width: 420px;
-    margin: 0 auto;
+    margin: 0 auto 32px; /* ← отступ снизу */
     position: relative;
+    height: auto;
 }
 
 /* сами картинки */
@@ -36,11 +37,11 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    border-radius: 6px;
+    max-width: 420px;
+    border-radius: 12px;
 
     opacity: 0;
     transition: opacity 1.2s ease;
-    pointer-events: none;
 }
 
 /* активное фото */
@@ -48,10 +49,18 @@ body {
     opacity: 1;
     pointer-events: auto;
 }
+
+
+.slider::before {
+    content: "";
+    display: block;
+    padding-top: 125%; /* соотношение сторон фото */
+}
 /* ===== ТЕКСТ ===== */
 
 .text {
     text-align: center;
+    padding: 0 20px;
 }
 
 .text h1 {
