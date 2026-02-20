@@ -1,26 +1,32 @@
-const slides = document.querySelectorAll('.slide');
-let index = 0;
-const intervalTime = 7000;
+document.addEventListener('DOMContentLoaded', () => {
 
-function showSlide(i) {
-  slides.forEach((slide, n) => {
-    slide.classList.toggle('active', n === i);
-  });
-}
+    const slides = document.querySelectorAll('.slide');
+    if (!slides.length) return;
 
-function nextSlide() {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}
+    let index = 0;
+    const intervalTime = 7000;
 
-// автопереключение
-let sliderInterval = setInterval(nextSlide, intervalTime);
+    function showSlide(i) {
+        slides.forEach((slide, n) => {
+            slide.classList.toggle('active', n === i);
+        });
+    }
 
-// 👆 переключение по тапу / клику
-slides.forEach(slide => {
-  slide.addEventListener('click', () => {
-    clearInterval(sliderInterval);
-    nextSlide();
-    sliderInterval = setInterval(nextSlide, intervalTime);
-  });
+    function nextSlide() {
+        index = (index + 1) % slides.length;
+        showSlide(index);
+    }
+
+    // автослайд
+    let sliderInterval = setInterval(nextSlide, intervalTime);
+
+    // 👆 тап по фото
+    slides.forEach(slide => {
+        slide.addEventListener('click', () => {
+            clearInterval(sliderInterval);
+            nextSlide();
+            sliderInterval = setInterval(nextSlide, intervalTime);
+        });
+    });
+
 });
